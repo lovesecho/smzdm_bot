@@ -41,7 +41,7 @@ class SMZDM_Bot(object):
         签到函数
         """
         url = 'https://zhiyou.smzdm.com/user/checkin/jsonp_checkin'
-        msg = self.session.get(url)
+        msg = self.session.get(url, verify=False)
         if self.__json_check(msg):
             return msg.json()
         return msg.content
